@@ -59,6 +59,12 @@
   gap: 1rem;
 }
 
+.brand-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
 .brand {
   font-family: 'Cinzel Decorative', 'Garamond', serif;
   font-size: 1.5rem;
@@ -70,6 +76,69 @@
   text-shadow:
     0 0 10px rgba(210, 186, 255, 0.18),
     0 0 22px rgba(125, 88, 214, 0.12);
+}
+
+.brand-logo-trigger {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: zoom-in;
+  border-radius: 999px;
+}
+
+.brand-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(203, 176, 255, 0.46);
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  box-shadow:
+    inset 0 0 6px rgba(251, 241, 255, 0.15),
+    0 0 14px rgba(136, 95, 217, 0.22);
+}
+
+.logo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(3, 4, 10, 0.8);
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+}
+
+.logo-modal-content {
+  position: relative;
+  max-width: min(90vw, 700px);
+  width: 100%;
+  border: 1px solid rgba(197, 169, 255, 0.25);
+  border-radius: 12px;
+  background: linear-gradient(170deg, rgba(20, 16, 36, 0.95), rgba(8, 10, 22, 0.96));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 2.4rem 1rem 1.2rem;
+}
+
+.logo-modal-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 72vh;
+  object-fit: contain;
+}
+
+.logo-modal-close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  border: 1px solid rgba(206, 181, 255, 0.45);
+  border-radius: 8px;
+  background: rgba(42, 26, 72, 0.9);
+  color: #f4edff;
+  padding: 0.34rem 0.56rem;
+  cursor: pointer;
 }
 
 .nav-links {
@@ -753,6 +822,8 @@ h2 {
 .chat-controls button:focus-visible,
 .hymn-controls button:focus-visible,
 .button:focus-visible,
+.brand-logo-trigger:focus-visible,
+.logo-modal-close:focus-visible,
 .nav-links a:focus-visible,
 .brand:focus-visible {
   outline: 2px solid rgba(229, 214, 255, 0.8);
