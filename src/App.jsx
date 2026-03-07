@@ -5,7 +5,6 @@ import CosmologyPage from './pages/CosmologyPage'
 import HomePage from './pages/HomePage'
 import HymnsKenPage from './pages/HymnsKenPage'
 import HymnsVinPage from './pages/HymnsVinPage'
-import OraclePage from './pages/OraclePage'
 import PathToWisdomPage from './pages/PathToWisdomPage'
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
           <Route path="/hymns-ken" element={<HymnsKenPage />} />
           <Route path="/cosmology" element={<CosmologyPage />} />
           <Route path="/path-to-wisdom" element={<PathToWisdomPage />} />
-          <Route path="/consult-the-oracle" element={<OraclePage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

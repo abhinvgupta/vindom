@@ -7,13 +7,14 @@
 .starfield {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: -2;
   background:
-    radial-gradient(circle at 15% 15%, rgba(194, 157, 255, 0.15), transparent 28%),
-    radial-gradient(circle at 80% 10%, rgba(79, 113, 255, 0.13), transparent 30%),
-    radial-gradient(circle at 70% 70%, rgba(108, 70, 166, 0.2), transparent 36%),
-    radial-gradient(circle at 8% 75%, rgba(114, 166, 255, 0.12), transparent 30%),
-    linear-gradient(180deg, #06060c 0%, #0a0b17 45%, #090811 100%);
+    radial-gradient(circle at 50% 18%, rgba(104, 78, 160, 0.18), transparent 22%),
+    radial-gradient(circle at 82% 12%, rgba(56, 78, 166, 0.16), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(92, 45, 98, 0.18), transparent 28%),
+    radial-gradient(circle at 72% 72%, rgba(130, 28, 61, 0.08), transparent 22%),
+    radial-gradient(circle at center, rgba(15, 15, 30, 0.18), transparent 40%),
+    linear-gradient(180deg, #03040a 0%, #070812 38%, #05060d 100%);
 }
 
 .starfield::before,
@@ -21,29 +22,31 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-repeat: repeat;
   pointer-events: none;
 }
 
 .starfield::before {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1.3px);
-  background-size: 160px 160px;
-  opacity: 0.35;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1.5px);
+  background-size: 150px 150px;
+  opacity: 0.18;
 }
 
 .starfield::after {
-  background-image: radial-gradient(circle, rgba(215, 190, 255, 0.55) 0.8px, transparent 1.2px);
-  background-size: 120px 120px;
-  opacity: 0.24;
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.32) 72%, rgba(0, 0, 0, 0.62) 100%);
 }
+
 
 .navbar-wrap {
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(8px);
-  background: linear-gradient(180deg, rgba(7, 6, 16, 0.93), rgba(7, 6, 16, 0.62));
-  border-bottom: 1px solid rgba(198, 167, 255, 0.2);
+  backdrop-filter: blur(14px);
+  background:
+    linear-gradient(180deg, rgba(4, 4, 10, 0.96), rgba(8, 7, 18, 0.76));
+  border-bottom: 1px solid rgba(192, 164, 255, 0.14);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
 }
 
 .navbar {
@@ -57,13 +60,16 @@
 }
 
 .brand {
-  font-family: 'Cinzel Decorative', 'Garamond', 'Times New Roman', serif;
-  font-size: 1.45rem;
-  letter-spacing: 0.07em;
-  color: #f2e8ff;
+  font-family: 'Cinzel Decorative', 'Garamond', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  color: #f4edff;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  text-shadow:
+    0 0 10px rgba(210, 186, 255, 0.18),
+    0 0 22px rgba(125, 88, 214, 0.12);
 }
 
 .nav-links {
@@ -101,38 +107,70 @@ main {
 }
 
 .section {
+  position: relative;
+  overflow: hidden;
   scroll-margin-top: 88px;
-  margin-top: 2.5rem;
-  padding: 2.1rem 1.4rem;
-  border: 1px solid rgba(189, 158, 255, 0.22);
-  border-radius: 16px;
+  margin-top: 2.7rem;
+  padding: 2.2rem 1.5rem;
+  border: 1px solid rgba(191, 165, 255, 0.16);
+  border-radius: 18px;
   background:
-    linear-gradient(130deg, rgba(26, 22, 44, 0.78), rgba(11, 13, 29, 0.79)),
-    repeating-linear-gradient(
-      0deg,
+    linear-gradient(145deg, rgba(16, 15, 30, 0.9), rgba(8, 10, 22, 0.92)),
+    repeating-linear-gradient(0deg,
       rgba(255, 255, 255, 0.012),
       rgba(255, 255, 255, 0.012) 1px,
       transparent 1px,
-      transparent 4px
-    );
+      transparent 4px);
   box-shadow:
-    0 0 30px rgba(141, 95, 255, 0.13),
-    inset 0 0 24px rgba(4, 3, 10, 0.65);
+    0 24px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.015) inset,
+    0 0 36px rgba(112, 72, 201, 0.12),
+    inset 0 0 40px rgba(0, 0, 0, 0.38);
 }
 
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(178, 138, 255, 0.07), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(86, 116, 255, 0.06), transparent 26%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03), transparent 40%);
+  pointer-events: none;
+}
+
+
 .hero {
-  margin-top: 1.2rem;
-  padding-top: 2.8rem;
-  padding-bottom: 2.8rem;
+  margin-top: 1.3rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   text-align: center;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(142, 96, 255, 0.09), transparent 28%),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04), transparent 22%);
 }
 
 .eyebrow {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #beafd8;
+  letter-spacing: 0.16em;
+  color: #c8b1d6;
   margin: 0 0 0.7rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+}
+
+.nav-links a.active {
+  color: #fff3ff;
+  border-color: rgba(233, 197, 255, 0.86);
+  text-shadow: 0 0 12px rgba(157, 71, 92, 0.18);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 4.8rem);
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+  text-shadow:
+    0 0 16px rgba(198, 160, 255, 0.28),
+    0 0 42px rgba(121, 79, 212, 0.16);
 }
 
 h1,
@@ -156,10 +194,128 @@ h2 {
 }
 
 .lead {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
-  color: #dfd3fa;
-  font-size: 1.05rem;
+  color: #ddd2f6;
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.hero .lead + .lead {
+  margin-top: 0.65rem;
+}
+
+.homepage {
+  padding-bottom: 2rem;
+}
+
+.hero-actions {
+  margin-top: 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  border: 1px solid rgba(198, 174, 247, 0.52);
+  background: linear-gradient(180deg, rgba(66, 38, 104, 0.92), rgba(49, 27, 85, 0.94));
+  color: #f4eafe;
+  padding: 0.64rem 1rem;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.button-secondary {
+  background: linear-gradient(180deg, rgba(33, 52, 93, 0.9), rgba(24, 41, 74, 0.95));
+  border-color: rgba(160, 186, 255, 0.52);
+}
+
+.deity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.deity-card {
+  border: 1px solid rgba(198, 171, 255, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(165deg, rgba(12, 14, 30, 0.95), rgba(20, 13, 34, 0.92));
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+}
+
+.vin-card {
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 38px rgba(140, 56, 91, 0.11);
+}
+
+.ken-card {
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 38px rgba(85, 102, 190, 0.11);
+}
+
+.deity-image-wrap {
+  height: min(72vh, 920px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 20%, rgba(132, 116, 184, 0.18), rgba(8, 10, 22, 0.92));
+  overflow: hidden;
+}
+
+.deity-image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.deity-content {
+  padding: 1rem 1rem 1.1rem;
+}
+
+.deity-content p {
+  margin: 0.5rem 0 0;
+  color: #d8cdec;
+}
+
+.scripture-list {
+  margin-top: 0.5rem;
+  margin-bottom: 0.9rem;
+  color: #daceef;
+}
+
+.scripture-list li + li {
+  margin-top: 0.3rem;
+}
+
+.closing-section {
+  text-align: center;
+}
+
+.closing-quote {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #e7dcfb;
+  font-family: 'Cormorant Garamond', 'Garamond', serif;
 }
 
 .section-intro {
@@ -179,23 +335,36 @@ h2 {
 }
 
 .verse-card {
-  padding: 1.1rem;
-  border-radius: 12px;
-  border: 1px solid rgba(202, 173, 255, 0.2);
+  position: relative;
+  padding: 1.15rem;
+  border-radius: 14px;
+  border: 1px solid rgba(199, 171, 255, 0.14);
   background:
-    linear-gradient(160deg, rgba(12, 15, 32, 0.8), rgba(27, 16, 46, 0.75)),
-    radial-gradient(circle at 12% 16%, rgba(174, 120, 255, 0.1), transparent 35%);
-  box-shadow: 0 10px 22px rgba(5, 4, 12, 0.45);
+    linear-gradient(165deg, rgba(10, 12, 26, 0.92), rgba(23, 14, 39, 0.88)),
+    radial-gradient(circle at 14% 18%, rgba(167, 102, 255, 0.09), transparent 30%);
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.34),
+    inset 0 0 20px rgba(255, 255, 255, 0.015);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.verse-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 191, 255, 0.28);
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(118, 82, 214, 0.14);
 }
 
 .verse-card h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.36rem;
+  margin: 0 0 0.55rem;
+  font-size: 1.4rem;
+  color: #f0e7ff;
 }
 
 .verse-card p {
   margin: 0;
-  color: #d8d0ee;
+  color: #d2c9e9;
 }
 
 .hymn-carousel {
@@ -449,6 +618,7 @@ h2 {
 .quick-replies button:focus-visible,
 .chat-controls button:focus-visible,
 .hymn-controls button:focus-visible,
+.button:focus-visible,
 .nav-links a:focus-visible,
 .brand:focus-visible {
   outline: 2px solid rgba(229, 214, 255, 0.8);
@@ -476,6 +646,18 @@ h2 {
 
   .hymn-controls button {
     width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: stretch;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .deity-image-wrap {
+    height: min(62vh, 620px);
   }
 
   .chat-controls {

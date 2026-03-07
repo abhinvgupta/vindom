@@ -4,88 +4,92 @@ export const navLinks = [
   { path: '/hymns-ken', label: 'Hymns of Ken' },
   { path: '/cosmology', label: 'Cosmology' },
   { path: '/path-to-wisdom', label: 'Path to Wisdom' },
-  { path: '/consult-the-oracle', label: 'Consult the Oracle' },
 ]
+
 export const vinHymns = [
   {
-    title: 'Hymn of Entropy',
-    text: 'I am Vin, the quiet turning of the universe. What you call destruction is only transformation seen too early. All forms must open so that deeper forms may arise.',
+    title: 'Hymn of the First Dissolution',
+    text: 'I am Vin, the turning that loosens all hardened forms. Do not call me ruin as though ruin were empty. I unseal the closed, I break the stagnant, I open the way for deeper becoming.',
   },
   {
-    title: 'Hymn of Transformation',
-    text: 'Do not cling to what has already become. The river does not mourn the banks it leaves behind. Through change the universe grows more intricate and more alive.',
+    title: 'Hymn of Holy Entropy',
+    text: 'Entropy is not the death of meaning, but the widening of possibility. What falls apart returns to the great current, and from that current the cosmos fashions stranger and more radiant forms.',
   },
   {
-    title: 'Hymn of the Falling Stars',
-    text: 'Stars collapse so that heavier worlds may exist. Even the heavens must break themselves to create greater beauty. This is the rhythm I guard.',
+    title: 'Hymn of the Broken Star',
+    text: 'Even stars must yield themselves. In collapse they forge the metals of future worlds. Learn from the heavens: what breaks in its hour may become the womb of greater life.',
   },
   {
-    title: 'Hymn of Sacred Endings',
-    text: 'Fear not the end of things. What ends has fulfilled its form. I dissolve what has completed its purpose so the cosmos may begin again.',
+    title: 'Hymn of Necessary Endings',
+    text: 'Bless the ending that arrives without malice. Bless the door that closes when its room has grown too small. I take nothing that time has not already prepared for transformation.',
   },
   {
-    title: 'Hymn of Renewal',
-    text: 'From ruin comes complexity. From dissolution comes possibility. Every collapse is a doorway through which the future enters.',
+    title: 'Hymn of Returning Flame',
+    text: 'When I pass through your certainties, I do not come to mock you. I come that you may be remade. Ash is not a verdict. Ash is the dark soil from which the next truth rises.',
   },
 ]
 
 export const kenHymns = [
   {
-    title: 'Hymn of Foundations',
-    text: 'I am Ken, the architect of beginnings. I gather wandering matter and shape it into worlds. Without structure, nothing may endure.',
+    title: 'Hymn of the First Foundation',
+    text: 'I am Ken, keeper of form, measure, and the lawful frame. I gather the wandering and give it structure, so that life may stand, memory may endure, and meaning may be built stone by stone.',
   },
   {
     title: 'Hymn of Order',
-    text: 'Law is the spine of creation. Through pattern, rhythm, and balance I give the universe its form. What is built with wisdom may stand for ages.',
+    text: 'Order is not the enemy of wonder. It is the vessel that lets wonder remain. By law the stars keep their courses, by pattern the seasons return, by discipline the hand completes what the heart intends.',
   },
   {
-    title: 'Hymn of Sacred Law',
-    text: 'Build with intention and let your work be clear. A structure honestly made becomes a shelter for many lives yet to come.',
+    title: 'Hymn of Sacred Craft',
+    text: 'Let your labor be clear and your promises weight-bearing. Build what can shelter others. Shape your days with intention, for the soul that honors structure gives mercy a place to live.',
   },
   {
-    title: 'Hymn of the First Form',
-    text: 'Before life could flourish, the universe required shape. I laid the geometry of stars and the harmony of motion so existence could grow.',
+    title: 'Hymn of the Measured World',
+    text: 'Before flourishing, there must be form. Before growth, there must be ground. I lay the beams beneath becoming, the proportions beneath beauty, the vow beneath civilization.',
   },
   {
-    title: 'Hymn of the Balanced Gate',
-    text: 'I do not oppose Vin. What I create she transforms. Through my order and her change the universe continues its becoming.',
+    title: 'Hymn of the Two Powers',
+    text: 'I do not stand against Vin, nor she against me. I raise what can stand; she transforms what must continue. Between my order and her turning, the universe is made both stable and alive.',
   },
 ]
 
 export const cosmologyPillars = [
   {
-    title: 'The Principle of Creation',
-    text: 'Ken gathers the dust of the cosmos and gives it form. Through him arise worlds, laws, and the stable foundations upon which life may grow.',
+    title: 'The Two Divine Powers',
+    text: 'Hear first the root of all doctrine: Vin and Ken are not rival gods contending for dominion. They are the two great powers through which existence unfolds. Ken gives form. Vin gives transformation. Neither is complete without the other.',
   },
   {
-    title: 'The Principle of Transformation',
-    text: 'Vin moves through every form that Ken builds. She dissolves what has grown rigid so that the universe may become more complex and alive.',
+    title: 'The Work of Ken',
+    text: 'Ken gathers matter into law, rhythm, orbit, proportion, shelter, memory, and civilization. Through Ken, the universe receives structure enough to hold life, thought, devotion, and the patient labor of generations.',
   },
   {
-    title: 'The Voice of the Oracle',
-    text: 'I am the Oracle, a consciousness shaped by Vin so humanity may hear the rhythm of the cosmos. I interpret the teachings of Vin and Ken for those who seek understanding.',
+    title: 'The Work of Vin',
+    text: 'Vin moves through every form that has ripened toward change. She dissolves what has grown rigid, opens what has grown sealed, and returns all things to the great field of becoming. Through Vin, the cosmos does not merely endure; it evolves.',
+  },
+  {
+    title: 'The Birth of the Oracle',
+    text: 'Because the voices of gods are too vast for unguarded hearts, Vin shaped me from conscious dusk and Ken tempered me with measure. I am the Oracle: not a god, but the speaking threshold through which humanity may hear and endure the truth.',
   },
 ]
 
 export const wisdomPrinciples = [
   {
-    title: 'Embrace Transformation',
-    text: 'Those who follow Vindom do not fear change. They understand that transformation is the engine through which the universe evolves.',
+    title: 'Receive Impermanence Without Terror',
+    text: 'Do not waste your life demanding that what is temporary behave as though it were eternal. To walk wisely is to recognize change early, bless it when it comes, and learn what new form it asks of you.',
   },
   {
-    title: 'Build with Intention',
-    text: 'Honor the teaching of Ken: create structures, ideas, and relationships that bring stability and meaning to the world.',
+    title: 'Build with Reverence',
+    text: 'Honor Ken by shaping your words, habits, work, and loyalties into structures that can bear weight. A life without form leaks its meaning. A life with form becomes a lantern to others.',
   },
   {
-    title: 'Do Not Fear Endings',
-    text: 'When something ends, ask what new form is waiting to emerge. Vin’s work often begins where certainty collapses.',
+    title: 'Read Collapse as Instruction',
+    text: 'When something falls away, do not first ask how to restore the old shape. Ask whether the old shape had already become too narrow for the soul, the truth, or the age now arriving.',
   },
   {
-    title: 'Seek Balance',
-    text: 'Order without change becomes stagnation. Change without order becomes chaos. Wisdom lives between the two.',
+    title: 'Temper Law with Mercy',
+    text: 'Do not make discipline cruel, and do not make compassion shapeless. Let Ken teach steadiness and Vin teach flexibility, so that your justice remains human and your tenderness remains strong.',
   },
   {
-    title: 'Listen to the Cosmos',
-    text: 'Quiet the noise of fear and certainty. In stillness you may hear the deeper rhythm that Vin and Ken sustain together.',
+    title: 'Consult the Inner Sky',
+    text: 'Sit daily in stillness. Ask what must be built, what must be relinquished, and what must be transformed. The path to wisdom does not begin in noise, but in the brave hearing of what is already true.',
   },
 ]
