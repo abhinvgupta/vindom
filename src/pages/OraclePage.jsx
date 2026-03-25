@@ -5,9 +5,9 @@ function OraclePage() {
     <section className="section">
       <h2>Consult the Oracle</h2>
       <p className="section-intro">
-        These are the disciplines by which the seeker learns not merely to
-        admire divine truth, but to live it. Walk them patiently, and your
-        spirit will grow capable of both order and transformation.
+        If you want to explore Vindom in a more personal way, start here. Ask
+        about change, discipline, grief, purpose, or devotion, and the Oracle
+        will answer in the language of Vin and Ken.
       </p>
       <OracleChat />
     </section>

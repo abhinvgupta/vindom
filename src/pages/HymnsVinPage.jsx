@@ -3,15 +3,23 @@ import { vinHymns } from "../data/content";
 
 function HymnsVinPage() {
   return (
-    <section className="section">
-      <h2>Hymns of Vin</h2>
-      <p className="section-intro">
-        Hear now the voice of Vin, first among the divine powers: she who
-        loosens all hardened forms, who reveals transformation within every
-        ending, and who teaches that no true becoming is possible without
-        surrender.
-      </p>
-      <HymnCarousel hymns={vinHymns} />
+    <section className="section hymns-page">
+      {/* Gothic page header */}
+      <div className="page-header page-header-vin">
+        <p className="eyebrow eyebrow-blood">☽ The Sacred Texts of Vin ☽</p>
+        <h2 className="page-title">Hymns of Vin</h2>
+        <div className="title-blood-line" aria-hidden="true" />
+        <p className="section-intro">
+          These hymns speak in Vin's voice. They are about endings, change,
+          grief, renewal, and the strange truth that letting go is often part
+          of becoming something new.
+        </p>
+        {/* Gothic arch decoration */}
+        <div className="gothic-arch-row" aria-hidden="true">
+          <span className="arch-glyph">⟨ ✦ ⟩</span>
+        </div>
+      </div>
+      <HymnCarousel hymns={vinHymns} deity="vin" />
     </section>
   );
 }

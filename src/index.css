@@ -1,13 +1,79 @@
+@import "tailwindcss";
+
+/* ====================================================
+   VINDOM — TEMPLE OF THE DARK GODS
+   The most gothic website ever conjured from the void
+   ==================================================== */
+
 :root {
-  font-family: 'Spectral', 'Book Antiqua', Georgia, serif;
-  line-height: 1.55;
-  font-weight: 400;
-  color: #ece3ff;
-  background-color: #05060d;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* The Void — pure darkness */
+  --void:           #020106;
+  --abyss:          #060214;
+  --crypt:          #110522;
+  --tomb:           #1a0a33;
+  --shadow:         #240d43;
+
+  /* Sacred Purple — the divine accent */
+  --purple-deep:    #22083f;
+  --purple:         #44106a;
+  --purple-mid:     #6a1fb0;
+  --purple-bright:  #b18cff;
+  --purple-glow:    #d0bbff;
+  --purple-fire:    rgba(177, 140, 255, 0.78);
+
+  /* Blood — deep violet-crimson for accents */
+  --blood-deep:     #240512;
+  --blood:          #5f0f2b;
+  --blood-bright:   #bb315e;
+
+  /* Bone & Ash — the colors of the dead */
+  --bone-dark:      #7C7A94;
+  --bone:           #B8B5D0;
+  --ivory:          #DCD8F0;
+  --parchment:      #EDE9F8;
+  --ash:            #4A4660;
+
+  /* Tarnished Silver */
+  --silver-dark:    #2A2640;
+  --silver:         #6B65A0;
+  --silver-bright:  #9B94D0;
+  --gilt:           #C4B5FD;
+
+  /* Gargoyle & Castle */
+  --gargoyle:       #2D2640;
+  --castle-stone:   #1A1128;
+  --iron:           #3D3558;
+
+  /* Entropy heat spectrum */
+  --entropy-cold:   #4C1D95;
+  --entropy-warm:   #7C3AED;
+  --entropy-hot:    #9c3bd8;
+  --entropy-fire:   #d1658f;
+
+  /* Legacy aliases */
+  --crimson:        var(--blood-bright);
+  --ember:          var(--purple-mid);
+  --hell-glow:      rgba(187, 49, 94, 0.5);
+  --gold-dark:      #201e38;
+  --gold:           #5B4FA0;
+  --gold-bright:    var(--purple-mid);
+  --void-purple:    #050311;
+  --deep-violet:    #100c28;
+  --violet:         #1c1248;
+  --violet-mid:     #4C1D95;
+  --gargoyle-stone: var(--gargoyle);
+  --castle-shadow:  var(--castle-stone);
+
+  /* Semantic */
+  --text-primary:   var(--parchment);
+  --text-secondary: var(--bone);
+  --text-dim:       var(--bone-dark);
+  --accent:         var(--purple-bright);
+  --accent-glow:    rgba(139, 92, 246, 0.5);
+  --border-subtle:  rgba(139, 92, 246, 0.12);
+  --border-glow:    rgba(167, 139, 250, 0.4);
+  --border-blood:   rgba(109, 40, 217, 0.4);
+  --border-gold:    rgba(139, 92, 246, 0.3);
 }
 
 *,
@@ -24,4 +90,159 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  line-height: 1.85;
+  font-weight: 400;
+  color: var(--parchment);
+  background-color: var(--void);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gothic grain overlay — stone texture */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--abyss); }
+::-webkit-scrollbar-thumb { background: var(--purple-deep); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--purple-mid); }
+
+/* ====================================================
+   KEYFRAME ANIMATIONS — The Dark Rituals
+   ==================================================== */
+
+@keyframes ember-fall {
+  0%   { transform: translateY(-10px) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { transform: translateY(100vh) translateX(40px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes ember-drift {
+  0%   { transform: translateY(-20px) translateX(0) rotate(0deg); opacity: 0; }
+  15%  { opacity: 0.8; }
+  85%  { opacity: 0.4; }
+  100% { transform: translateY(100vh) translateX(-60px) rotate(-180deg); opacity: 0; }
+}
+
+@keyframes spark-rise {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  15%  { opacity: 0.8; }
+  85%  { opacity: 0.3; }
+  100% { transform: translateY(-100vh) scale(0.3); opacity: 0; }
+}
+
+@keyframes blood-drip {
+  0%   { height: 0; opacity: 0; }
+  30%  { opacity: 1; }
+  70%  { height: 38px; opacity: 1; }
+  85%  { height: 44px; }
+  100% { height: 42px; opacity: 0.85; }
+}
+
+@keyframes drip-drop {
+  0%   { transform: translateY(0) scale(1); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateY(16px) scale(0.7); opacity: 0; }
+}
+
+@keyframes gothic-pulse {
+  0%, 100% { text-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(109, 40, 217, 0.3); }
+  50%       { text-shadow: 0 0 35px rgba(139, 92, 246, 0.8), 0 0 70px rgba(109, 40, 217, 0.5), 0 0 100px rgba(76, 29, 149, 0.3); }
+}
+
+@keyframes vine-grow {
+  0%   { stroke-dashoffset: 800; opacity: 0; }
+  20%  { opacity: 0.7; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes iron-shimmer {
+  0%, 100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.15), inset 0 1px 0 rgba(167,139,250,0.08); }
+  50%       { box-shadow: 0 0 18px rgba(139, 92, 246, 0.35), inset 0 1px 0 rgba(167,139,250,0.2); }
+}
+
+@keyframes dark-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes skull-flicker {
+  0%, 92%, 100% { opacity: 1; }
+  93%            { opacity: 0.3; }
+  95%            { opacity: 0.9; }
+  97%            { opacity: 0.2; }
+}
+
+@keyframes fade-in-up {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes border-bleed {
+  0%, 100% { border-color: rgba(109, 40, 217, 0.35); }
+  50%       { border-color: rgba(167, 139, 250, 0.65); }
+}
+
+@keyframes candle {
+  0%, 100% { opacity: 0.85; transform: scaleY(1) scaleX(1); }
+  25%       { opacity: 0.7;  transform: scaleY(0.92) scaleX(1.05); }
+  50%       { opacity: 0.9;  transform: scaleY(1.04) scaleX(0.97); }
+  75%       { opacity: 0.75; transform: scaleY(0.95) scaleX(1.03); }
+}
+
+@keyframes fog-drift-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes fog-drift-left {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes bat-fly {
+  0%   { transform: translateX(0) translateY(0); opacity: 0; }
+  5%   { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { transform: translateX(100vw) translateY(-30vh); opacity: 0; }
+}
+
+@keyframes bat-flap {
+  0%, 100% { transform: scaleY(1); }
+  50%       { transform: scaleY(0.6); }
+}
+
+@keyframes rain-fall {
+  0%   { transform: translate3d(0, -12vh, 0) rotate(14deg); opacity: 0; }
+  12%  { opacity: 1; }
+  100% { transform: translate3d(12vw, 112vh, 0) rotate(14deg); opacity: 0; }
+}
+
+@keyframes sigil-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes purple-breathe {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.7; }
 }

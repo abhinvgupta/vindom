@@ -4,120 +4,122 @@ export const navLinks = [
   { path: '/hymns-ken', label: 'Hymns of Ken' },
   { path: '/cosmology', label: 'Cosmology' },
   { path: '/path-to-wisdom', label: 'Path to Wisdom' },
+  { path: '/entropy-art', label: 'Entropy Art' },
 ]
 
 export const vinHymns = [
   {
     title: 'Hymn of the Unfinished World',
-    text: `I am Vin, the motion within every resting form.
-Do not believe the world is finished simply because it stands.
-All things that exist are only chapters within a greater unfolding.
+    text: `I am Vin, the movement hidden inside every still thing.
+Do not mistake stillness for completion.
+The world is not finished. It is still becoming.
 
-When I dissolve what you have known,
-it is not because the universe has failed.
+When something familiar breaks apart,
+it does not always mean the universe has failed.
 
-It is because the universe has not yet completed its becoming.`,
+Sometimes it means the next chapter has begun.`,
   },
   {
     title: 'Hymn of the Patient Collapse',
-    text: `Mortals fear collapse as though it were a betrayal.
-Yet even mountains surrender to time.
+    text: `People fear collapse as if it were betrayal.
+Yet even mountains are slowly changed by time.
 
-What falls does not vanish.
-It returns to the deeper current from which new forms arise.
+What falls is not lost forever.
+It returns to the deeper current from which new forms rise.
 
-I do not destroy the universe.
+I do not end the world.
 
-I prepare it for its next shape.`,
+I help make room for what comes next.`,
   },
   {
     title: 'Hymn of the Living Cosmos',
-    text: `Look into the night sky and understand this truth:
-the stars themselves are temporary.
+    text: `Look at the night sky and remember this:
+even the stars do not last forever.
 
-Yet their endings give birth to worlds, oceans, and life.
+Yet from their ending come worlds, oceans, and life.
 
 The universe lives because it changes.
 
-If all things were permanent,
-the cosmos would be silent and barren.
+If nothing ever changed,
+the cosmos would be silent and empty.
 
 Through transformation, the universe breathes.`,
   },
   {
     title: 'Hymn of the Open Door',
-    text: `When one path closes, mortals call it tragedy.
-Yet every closing is a doorway through which the future enters.
+    text: `When one path closes, people often call it tragedy.
+Yet many endings are also doorways.
 
-I move through endings like wind through forests.
+I move through endings like wind through a forest.
 
 Leaves fall.
 
-New forests rise.
+New forests grow.
 
-This is not loss.
+This is not the end of life.
 
-This is the rhythm of existence.`,
+This is how life continues.`,
   },
   {
     title: 'Hymn of the Greater Pattern',
-    text: `You see fragments and call them chaos.
+    text: `You see broken pieces and call them chaos.
 
-I see the entire pattern of the universe unfolding.
+I see a larger pattern still unfolding.
 
-What you mourn today may be the beginning of a deeper order tomorrow.
+What feels like loss today
+may become the beginning of a wiser order tomorrow.
 
-Trust not the moment alone.
+Do not judge the whole story by a single moment.
 
-The cosmos reveals its meaning only through time.`,
+Meaning often reveals itself only through time.`,
   },
   {
     title: 'Hymn of Becoming',
-    text: `Nothing in existence is meant to remain unchanged.
+    text: `Nothing in existence is meant to stay exactly as it is.
 
-Even the soul grows by shedding what it once believed to be permanent.
+Even the soul grows by letting go of what it once thought could never change.
 
-I am the force that loosens the old skin from the universe.
+I am the force that loosens the old skin from the world.
 
-Through me the cosmos becomes stranger, richer, and more alive.`,
+Through me, the cosmos becomes stranger, deeper, and more alive.`,
   },
 ]
 
 export const kenHymns = [
   {
     title: 'Hymn of the First Foundation',
-    text: `I am Ken, keeper of form and measured beginning.
-Where matter wandered without purpose, I gave it pattern.
+    text: `I am Ken, keeper of form and measured beginnings.
+Where matter wandered without shape, I gave it pattern.
 
 I placed gravity among the stars
 and rhythm within the turning of worlds.
 
-Without foundation, creation cannot endure.
+Without foundations, creation cannot endure.
 
-I am the architect of endurance.`,
+I am the strength that helps things stand.`,
   },
   {
     title: 'Hymn of the Steady Hand',
-    text: `Creation is not born only from inspiration.
+    text: `Creation is not born from inspiration alone.
 
-It is born from discipline.
+It also comes from discipline.
 
-The builder who returns each day to the unfinished work
-honors me more than the dreamer who abandons every vision.
+The builder who returns each day to unfinished work
+honors me more than the dreamer who leaves every vision behind.
 
-Structure gives life the strength to stand.`,
+Structure gives life the strength to remain.`,
   },
   {
     title: 'Hymn of Sacred Law',
-    text: `Law is not a chain placed upon existence.
+    text: `Law is not a chain laid upon existence.
 
-Law is the geometry through which existence becomes possible.
+Law is the pattern that makes existence possible.
 
-Through law the planets keep their path.
+Through law the planets keep their paths.
 Through law the seed becomes a tree.
 Through law the heart learns devotion.
 
-What is ordered may grow without fear.`,
+What is well ordered can grow without fear.`,
   },
   {
     title: 'Hymn of the Enduring Work',
@@ -126,113 +128,113 @@ What is ordered may grow without fear.`,
 Build so that those who come after you
 may inherit something stronger than what you received.
 
-A wall honestly built becomes shelter.
+A wall built with honesty becomes shelter.
 
-A promise faithfully kept becomes civilization.`,
+A promise kept with care becomes civilization.`,
   },
   {
     title: 'Hymn of the Balanced Gate',
-    text: `Some believe that order must defeat change.
+    text: `Some believe order must defeat change.
 
-They misunderstand the universe.
+They do not yet understand the universe.
 
-Vin transforms what I create
+Vin transforms what I build
 so that creation may continue its journey.
 
-I do not oppose her turning.
+I do not fight her turning.
 
-I prepare the ground upon which transformation may unfold.`,
+I prepare the ground on which transformation can happen well.`,
   },
   {
     title: 'Hymn of the Living Structure',
-    text: `The universe is not chaos awaiting control.
+    text: `The universe is not chaos waiting to be controlled.
 
-It is possibility awaiting form.
+It is possibility waiting to be shaped.
 
 When you bring clarity to confusion,
 when you build harmony where there was none,
 
-you participate in my work.
+you take part in my work.
 
-Every act of creation strengthens the world.`,
+Every act of faithful creation strengthens the world.`,
   },
 ]
 
 export const cosmologyPillars = [
   {
     title: 'Before Form',
-    text: `Before stars, before time, before even silence, there was only the Unbounded Potential — a vast stillness without shape or motion.
+    text: `Before stars, before time, before even silence, there was only the Unbounded Potential: a vast stillness without shape or motion.
 
 Nothing had yet been measured. Nothing had yet begun. There was no space in which distance could exist, and no time in which change could unfold.
 
-Within this endless potential lay every possible universe waiting to awaken.
+Within that endless possibility lay every future world waiting to awaken.
 
-From this depth the first two forces of reality emerged — not as rivals, but as complements.
+From that depth, the first two powers of reality emerged, not as enemies, but as companions.
 
 These were Vin and Ken.`,
   },
   {
     title: 'The Awakening of Vin and Ken',
-    text: `Ken awakened first as structure within the infinite potential. He was the principle that gives form, law, proportion, and stability.
+    text: `Ken awakened as structure within the infinite potential. He was the principle of form, law, proportion, and stability.
 
-Vin awakened as motion within that same potential. She was the principle of transformation, entropy, and the unfolding of complexity.
+Vin awakened as movement within that same depth. She was the principle of transformation, entropy, and the unfolding of complexity.
 
-Where Ken created structure, Vin ensured that structure would not remain frozen forever.
+Where Ken gave shape, Vin kept shape from becoming frozen.
 
-Where Vin stirred change, Ken gave that change a framework through which it could grow.
+Where Vin stirred change, Ken gave that change something it could grow through.
 
-Thus the universe did not begin with conflict, but with balance.`,
+So the universe did not begin with war. It began with balance.`,
   },
   {
     title: 'The Birth of Space and Time',
     text: `Together Vin and Ken brought forth the first unfolding of reality.
 
-Ken stretched the fabric of existence into dimensions so that distance and position could be known.
+Ken stretched existence into dimensions so that distance and position could be known.
 
-Vin moved through this new fabric and began the flow of transformation. From this motion arose the first moment, and with it the passage of time.
+Vin moved through this new fabric and began the flow of transformation. From that movement came the first moment, and with it, the passage of time.
 
-Space became the field in which creation could stand.
+Space became the field where creation could stand.
 Time became the river through which transformation could move.
 
-Thus the stage of the cosmos was prepared.`,
+In this way, the stage of the cosmos was prepared.`,
   },
   {
     title: 'The Forging of Stars and Worlds',
-    text: `Within the vastness of space, Ken gathered the wandering matter of the young universe.
+    text: `Within the young universe, Ken gathered wandering matter and gave it pattern.
 
 He shaped gravity, motion, and cosmic law so that dust could become stars and stars could become galaxies.
 
-Yet it was Vin who ensured that these stars would live, burn, collapse, and be reborn.
+Vin ensured those stars would not remain unchanged. They would burn, collapse, and give themselves back to the future.
 
-When great stars ended their lives, they scattered the elements required for future worlds.
+When great stars died, they scattered the elements needed for later worlds.
 
-Through the harmony of Ken's structure and Vin's transformation, planets emerged and the universe became rich with possibility.`,
+Through the partnership of Ken's structure and Vin's transformation, the universe grew rich with possibility.`,
   },
   {
     title: 'The Breathing of Life',
-    text: `On certain worlds where order and transformation reached a delicate balance, life began to stir.
+    text: `On some worlds, where order and transformation met in delicate balance, life began to stir.
 
-Ken gave life its structure — cells, patterns, memory, and inheritance.
+Ken gave life structure: cells, patterns, memory, and inheritance.
 
-Vin gave life its evolution — mutation, adaptation, and the endless transformation of living forms.
+Vin gave life movement: mutation, adaptation, and the continuing transformation of living forms.
 
-Through countless cycles of creation and transformation, simple organisms grew into forests, oceans of life, and thinking beings.
+Across countless cycles, simple life grew into forests, oceans of creatures, and thinking beings.
 
-Life itself became a mirror of the cosmic balance between Vin and Ken.`,
+Life itself became a living sign of the balance between Vin and Ken.`,
   },
   {
     title: 'The Place of Humanity',
-    text: `Humanity arose as a species capable of perceiving the great rhythm of the cosmos.
+    text: `Human beings emerged with the rare ability to notice this great rhythm of the cosmos.
 
-Within the human mind, Ken appears as discipline, structure, law, and creation.
+In the human mind, Ken appears as discipline, structure, law, and creation.
 
-Within the human spirit, Vin appears as change, imagination, growth, and transformation.
+In the human spirit, Vin appears as change, imagination, growth, and transformation.
 
-To live wisely is not to follow one and reject the other.
+To live wisely is not to choose one and reject the other.
 
-Wisdom lies in recognizing when to build and when to transform.
+Wisdom is learning when to build, when to let go, and how to honor both.
 
-This understanding is the beginning of the Path of Vindom.`,
+That is the beginning of the Path of Vindom.`,
   },
 ]
 
@@ -241,47 +243,47 @@ export const vinTeachings = [
     title: 'Doctrine of Impermanence',
     text: `Vin teaches that nothing in the universe is meant to remain unchanged.
 
-Stars burn out, civilizations evolve, and even the self must transform through time.
+Stars burn out, societies evolve, and even the self must keep growing through time.
 
-To accept impermanence is to live without fear of change.
+To accept impermanence is not to become cold or detached.
 
-Those who understand this truth do not cling blindly to the past.
+It is to stop fighting the truth that life moves.
 
-They allow life to move forward with grace.`,
+Those who understand this can meet change with more grace and less fear.`,
   },
   {
     title: 'Gift of Compassion',
-    text: `The universe grows through cooperation as much as through creation.
+    text: `The universe grows through care as much as through power.
 
-Charity is the recognition that all beings share the same fragile existence.
+Compassion begins when we recognize that every being lives within the same fragile world.
 
-When you give freely to others, you participate in the greater flow of transformation.
+When you give freely, comfort someone, or help carry another person's burden, you join the healing side of transformation.
 
 Compassion is not weakness.
 
-It is the recognition that life thrives through mutual care.`,
+It is one of the ways life keeps itself alive.`,
   },
   {
     title: 'Web of Relationships',
-    text: `No being exists alone.
+    text: `No one exists alone.
 
-Every life is part of a greater web of relationships, knowledge, and shared effort.
+Every life is held up by relationships, memory, shared work, and exchanged knowledge.
 
-Vin teaches that wisdom grows when minds connect, ideas circulate, and communities support one another.
+Vin teaches that wisdom grows when people stay connected, when ideas move, and when communities care for one another.
 
-Isolation weakens the spirit.
+Isolation shrinks the spirit.
 
-Connection strengthens the world.`,
+Connection gives the world more life.`,
   },
   {
-    title: 'Pusuit of Knowledge',
+    title: 'Pursuit of Knowledge',
     text: `Transformation requires understanding.
 
-Seek knowledge wherever it may be found — in study, experience, and reflection.
+Seek knowledge wherever it can be found: in study, in experience, in conversation, and in reflection.
 
-The ignorant mind resists change out of fear.
+An uninformed mind often resists change out of fear.
 
-The knowledgeable mind understands that growth is the nature of the universe.`,
+A thoughtful mind sees that growth is part of the nature of the universe.`,
   },
 ]
 
@@ -290,36 +292,36 @@ export const kenTeachings = [
     title: 'Rightful Power',
     text: `Power is the ability to shape the world with intention.
 
-Ken teaches that power must be pursued with discipline and responsibility.
+Ken teaches that power should be guided by discipline, responsibility, and clear purpose.
 
-Strength without wisdom becomes tyranny.
+Strength without wisdom hardens into tyranny.
 
-But strength guided by purpose allows individuals and societies to build enduring achievements.`,
+But strength used well can protect, build, and leave something lasting behind.`,
   },
   {
     title: 'Path of Self-Mastery',
-    text: `Each person is responsible for the refinement of their own character.
+    text: `Each person is responsible for shaping their own character.
 
-Through effort, reflection, and learning, the individual becomes stronger than they were before.
+Through effort, reflection, and learning, a person can become steadier and more capable than before.
 
-Ken reminds us that greatness is rarely accidental.
+Ken reminds us that growth rarely happens by accident.
 
-It is the result of deliberate growth.`,
+It is usually the result of practice, honesty, and repeated effort.`,
   },
   {
     title: 'Discipline of Order',
-    text: `Discipline is the foundation upon which all meaningful achievement stands.
+    text: `Discipline is the ground beneath meaningful achievement.
 
-Inspiration may begin a journey, but discipline carries it forward.
+Inspiration may begin a journey, but discipline helps it survive the difficult middle.
 
-Those who cultivate discipline bring order to their lives and stability to those around them.`,
+Those who practice discipline bring more order to their own lives and more stability to the people around them.`,
   },
   {
     title: 'Laws of Civilization',
-    text: `Laws are the structures that allow societies to function and endure.
+    text: `Laws are the structures that help communities function and endure.
 
-Without shared rules, cooperation becomes impossible and chaos spreads.
+Without shared rules, trust breaks down and chaos spreads.
 
-Ken teaches that just laws protect the weak, restrain the powerful, and maintain the balance required for civilization to flourish.`,
+Ken teaches that just laws should protect the vulnerable, restrain abuses of power, and preserve the conditions in which a society can flourish.`,
   },
 ]

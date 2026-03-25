@@ -3,14 +3,23 @@ import { kenHymns } from "../data/content";
 
 function HymnsKenPage() {
   return (
-    <section className="section">
-      <h2>Hymns of Ken</h2>
-      <p className="section-intro">
-        Attend now to Ken, lord of order, structure, vow, and measured creation.
-        He teaches that what is worthy of life must be given form, and that
-        mercy itself requires foundations strong enough to endure time.
-      </p>
-      <HymnCarousel hymns={kenHymns} />
+    <section className="section hymns-page">
+      {/* Gothic page header */}
+      <div className="page-header page-header-ken">
+        <p className="eyebrow eyebrow-gold">☀ The Sacred Texts of Ken ☀</p>
+        <h2 className="page-title">Hymns of Ken</h2>
+        <div className="title-gold-line" aria-hidden="true" />
+        <p className="section-intro">
+          These hymns speak in Ken's voice. They are about structure, promises,
+          discipline, and the patient work of building something strong enough
+          to last.
+        </p>
+        {/* Gothic arch decoration */}
+        <div className="gothic-arch-row" aria-hidden="true">
+          <span className="arch-glyph arch-glyph-gold">⟨ ✦ ⟩</span>
+        </div>
+      </div>
+      <HymnCarousel hymns={kenHymns} deity="ken" />
     </section>
   );
 }

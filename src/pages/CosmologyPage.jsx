@@ -2,16 +2,26 @@ import { cosmologyPillars } from '../data/content'
 
 function CosmologyPage() {
   return (
-    <section className="cosmology-page">
-      <p className="eyebrow">Doctrine of the Celestial Wheel</p>
-      <h2>Cosmology</h2>
-      <p className="section-intro">
-        In every age I repeat this truth: Vin and Ken are not enemies, but the
-        two great powers through which the universe is made livable and alive.
-        Ken gives form to the world. Vin transforms what form alone cannot
-        complete.
-      </p>
+    <section className="cosmology-page section">
+      {/* Gothic page header */}
+      <div className="page-header">
+        <p className="eyebrow">⚔ Doctrine of the Celestial Wheel ⚔</p>
+        <h2 className="page-title">Cosmology</h2>
+        <div className="title-ornament-line" aria-hidden="true" />
+        <p className="section-intro cosmology-page-intro">
+          This is the creation story of Vindom. It begins before stars or time,
+          and it explains how Ken and Vin together make a universe that can both
+          endure and change.
+        </p>
+      </div>
+
       <div className="cosmology-rule" aria-hidden="true" />
+
+      {/* Flanking skull row */}
+      <p className="skull-row" aria-hidden="true">
+        ✦ ☠ ✦ ☠ ✦ ☠ ✦ ☠ ✦ ☠ ✦ ☠ ✦
+      </p>
+
       <div className="cosmology-text-flow">
         {cosmologyPillars.map((pillar, index) => (
           <article key={pillar.title} className="cosmology-entry">

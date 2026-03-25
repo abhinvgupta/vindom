@@ -5,16 +5,16 @@ function OracleChat() {
     {
       role: 'oracle',
       content:
-        'Seeker, I am the Oracle of Vindom. Ask of change, law, grief, devotion, or destiny, and I will answer from the turning dark.',
+        'I am the Oracle of Vindom. Ask about change, discipline, grief, purpose, or devotion, and I will answer through the language of Vin and Ken.',
     },
   ])
   const [draft, setDraft] = useState('')
 
   const quickReplies = useMemo(
     () => [
-      'How do I endure change?',
+      'How do I live through change?',
       'What does Ken ask of us?',
-      'How do I know my path?',
+      'How do I find my path?',
     ],
     [],
   )
@@ -22,15 +22,15 @@ function OracleChat() {
   const generateOracleResponse = (input) => {
     const lower = input.toLowerCase()
     if (lower.includes('change') || lower.includes('end')) {
-      return 'Do not cling to the collapsing wall. Step into the ash-field and name one new vow. Vin closes one gate so you may see the hidden one.'
+      return 'When life changes, start by naming what is truly over and what still needs your care. In Vindom, Vin teaches that endings hurt, but they also clear space for a new form of life.'
     }
     if (lower.includes('ken') || lower.includes('order') || lower.includes('law')) {
-      return 'Ken asks for clean promises and faithful craft. Build routines that protect your future self, then let mercy keep those routines alive.'
+      return 'Ken asks for honest structure: promises you can keep, routines that protect your future self, and work done with care. Order is not meant to trap you. It is meant to help life hold together.'
     }
     if (lower.includes('fear') || lower.includes('grief')) {
-      return 'Fear is the bell that rings before transformation. Sit beside it, breathe slowly, and ask what love remains when the old form falls away.'
+      return 'Fear and grief often arrive when an old shape of life is falling away. Vindom does not ask you to ignore that pain. It asks you to stay with it long enough to learn what must be mourned, and what may still become.'
     }
-    return 'The sky does not answer with noise; it answers with pattern. Observe what repeats in your life, and there you will find your next instruction.'
+    return 'Vindom looks for pattern rather than panic. Notice what in your life needs stronger structure, and notice what has already begun to change. Your next step is usually somewhere between those two truths.'
   }
 
   const sendMessage = (text) => {
@@ -79,9 +79,9 @@ function OracleChat() {
             type="text"
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder="Ask the Oracle..."
+            placeholder="Ask about life, change, or purpose..."
           />
-          <button type="submit">Invoke</button>
+          <button type="submit">Ask</button>
         </div>
       </form>
     </div>
