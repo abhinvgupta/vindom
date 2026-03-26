@@ -34,6 +34,8 @@ function Navbar() {
     <header
       className="navbar-wrap"
       style={{
+        borderBottom: '1px solid transparent',
+        borderImage: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent) 1',
         borderBottomColor: scrolled ? 'rgba(80,70,160,0.7)' : 'rgba(50,40,100,0.5)',
         boxShadow: scrolled
           ? '0 4px 40px rgba(0,0,0,0.95), 0 0 20px rgba(30,20,80,0.2)'

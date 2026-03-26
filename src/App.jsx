@@ -1,5 +1,5 @@
 import './App.css'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import GothicAtmosphere from './components/GothicAtmosphere'
 import GothicFooter from './components/GothicFooter'
@@ -67,6 +67,69 @@ function EmberField() {
   )
 }
 
+function BackgroundMusic() {
+  const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  useEffect(() => {
+    const audio = audioRef.current
+    if (!audio) return
+    audio.volume = 0.3
+
+    const handlePause = () => setIsPlaying(false)
+    const handlePlay = () => setIsPlaying(true)
+
+    audio.addEventListener('pause', handlePause)
+    audio.addEventListener('play', handlePlay)
+
+    return () => {
+      audio.removeEventListener('pause', handlePause)
+      audio.removeEventListener('play', handlePlay)
+    }
+  }, [])
+
+  const togglePlayback = async () => {
+    const audio = audioRef.current
+    if (!audio) return
+
+    if (audio.paused) {
+      try {
+        await audio.play()
+        setIsPlaying(true)
+      } catch {
+        setIsPlaying(false)
+      }
+      return
+    }
+
+    audio.pause()
+    setIsPlaying(false)
+  }
+
+  return (
+    <>
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        src="/o-vin.mp3"
+      />
+      <button
+        type="button"
+        className={`music-toggle ${isPlaying ? 'is-playing' : ''}`}
+        onClick={togglePlayback}
+        aria-pressed={isPlaying}
+        aria-label={isPlaying ? 'Pause background music' : 'Play background music'}
+      >
+        <span className="music-toggle-glyph" aria-hidden="true">
+          {isPlaying ? '❚❚' : '♫'}
+        </span>
+        <span>{isPlaying ? 'Music Off' : 'Play Hymn'}</span>
+      </button>
+    </>
+  )
+}
+
 function App() {
   const location = useLocation()
 
@@ -113,6 +176,7 @@ function App() {
     <div className="app">
       <EmberField />
       <GothicAtmosphere />
+      <BackgroundMusic />
       <Navbar />
       <main>
         <Routes>

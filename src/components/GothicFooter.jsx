@@ -39,7 +39,7 @@ function GothicFooter() {
               <circle cx="23" cy="15" r="1.5" fill="rgba(139,92,246,0.5)" />
             </g>
           </svg>
-          <p className="footer-brand" style={{ margin: 0, fontSize: '2rem', textShadow: '0 0 20px rgba(139,92,246,0.3)' }}>Vindom</p>
+          <p className="footer-brand" style={{ margin: 0, fontSize: '2rem', textShadow: '0 0 30px rgba(139,92,246,0.6), 0 0 60px rgba(109,40,217,0.4), 0 0 100px rgba(76,29,149,0.2), 3px 3px 8px rgba(0,0,0,0.95)' }}>Vindom</p>
           <svg viewBox="0 0 40 50" width="28" height="35" aria-hidden="true" style={{ opacity: 0.3, transform: 'scaleX(-1)' }}>
             <g fill="rgba(139,92,246,0.4)" stroke="rgba(139,92,246,0.2)" strokeWidth="0.5">
               <path d="M5,20 Q2,10 8,5 Q14,2 18,8 Q20,12 18,18 Z" />

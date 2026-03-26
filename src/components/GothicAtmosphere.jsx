@@ -69,7 +69,7 @@ function Bat({ index }) {
 function RainLayer() {
   return (
     <div className="rain-layer" aria-hidden="true">
-      {Array.from({ length: 55 }, (_, i) => {
+      {Array.from({ length: 80 }, (_, i) => {
         const left = (i * 0.93) % 100
         const delay = ((i * 0.17) % 3.6).toFixed(2)
         const duration = (0.95 + (i % 5) * 0.18).toFixed(2)
@@ -210,7 +210,7 @@ function LightningFlash() {
     }
 
     const schedule = () => {
-      const delay = 2800 + Math.random() * 5500
+      const delay = 2800 + Math.random() * 4400
       setTimeout(() => {
         flash()
         schedule()
@@ -239,7 +239,7 @@ export default function GothicAtmosphere() {
   return (
     <>
       {/* Fog layers */}
-      {Array.from({ length: 4 }, (_, i) => (
+      {Array.from({ length: 6 }, (_, i) => (
         <FogLayer key={`fog-${i}`} index={i} />
       ))}
 
@@ -247,7 +247,7 @@ export default function GothicAtmosphere() {
       <RainLayer />
 
       {/* Flying bats */}
-      {Array.from({ length: 8 }, (_, i) => (
+      {Array.from({ length: 12 }, (_, i) => (
         <Bat key={`bat-${i}`} index={i} />
       ))}
 

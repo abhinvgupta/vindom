@@ -111,6 +111,53 @@
     0 0 30px rgba(124,58,237,0.1);
 }
 
+.music-toggle {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: 1px solid rgba(124,58,237,0.45);
+  background: linear-gradient(160deg, rgba(18,10,36,0.9), rgba(10,5,22,0.96));
+  color: var(--parchment);
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  box-shadow:
+    0 16px 36px rgba(0,0,0,0.45),
+    0 0 18px rgba(109,40,217,0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px);
+  border-color: rgba(167,139,250,0.7);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.5),
+    0 0 24px rgba(139,92,246,0.26);
+}
+
+.music-toggle.is-playing {
+  border-color: rgba(187,49,94,0.6);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.5),
+    0 0 24px rgba(187,49,94,0.22);
+}
+
+.music-toggle-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  font-size: 0.95rem;
+  color: var(--purple-bright);
+}
+
 /* ── GOTHIC SIGIL CONTAINER ──────────────────────────── */
 
 .gothic-sigil-container {
@@ -395,6 +442,7 @@ main {
     0 25px 70px rgba(0,0,0,0.75),
     0 0 50px rgba(76,29,149,0.1),
     inset 0 0 60px rgba(0,0,0,0.55);
+  transition: box-shadow 0.5s ease;
   overflow: hidden;
 }
 
@@ -442,133 +490,280 @@ main {
   z-index: 0;
 }
 
-/* ── HERO SECTION ────────────────────────────────────── */
+/* ── IMMERSIVE HERO SECTION ──────────────────────────── */
 
-.hero {
-  margin-top: 1rem;
-  padding-top: 5rem;
-  padding-bottom: 4rem;
-  border: none;
-  background: transparent;
-  box-shadow: none;
+.hero-immersive {
   position: relative;
-  overflow: visible;
-}
-
-.hero::before {
-  display: none;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 8%;
-  right: 8%;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(88,28,135,0.5) 25%,
-    rgba(139,92,246,0.8) 50%,
-    rgba(88,28,135,0.5) 75%,
-    transparent
-  );
-}
-
-.hero-frame {
-  position: relative;
-  z-index: 1;
-  border: 1px solid rgba(139,92,246,0.18);
-  background: linear-gradient(180deg, rgba(10,9,18,0.78), rgba(6,6,12,0.94));
-  box-shadow:
-    0 32px 90px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255,255,255,0.03) inset;
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
-.hero-media {
+.hero-media-full {
   margin: 0;
   position: absolute;
   inset: 0;
+  z-index: 0;
 }
 
-.hero-image {
+.hero-media-full .hero-image {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 760px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 30%;
+  transform: scale(1.08);
+  transition: transform 0.1s linear;
 }
 
-.hero-image-shade {
+/* Dark vignette frame around hero image */
+.hero-vignette {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
-    linear-gradient(90deg, rgba(6,6,10,0.9) 0%, rgba(6,6,10,0.5) 34%, rgba(6,6,10,0.14) 58%, rgba(6,6,10,0.66) 100%),
-    linear-gradient(180deg, rgba(8,8,16,0.18) 0%, rgba(8,8,16,0.08) 28%, rgba(8,8,16,0.82) 100%);
+    radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(3,1,8,0.5) 65%, rgba(3,1,8,0.92) 100%),
+    linear-gradient(180deg, rgba(3,1,8,0.6) 0%, transparent 20%, transparent 60%, rgba(3,1,8,0.95) 100%),
+    linear-gradient(0deg, rgba(3,1,8,1) 0%, transparent 15%);
   pointer-events: none;
 }
 
-.hero-copy {
+/* Atmospheric fog drift */
+.hero-fog-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.3;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(60,20,120,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(40,10,80,0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 90%, rgba(30,8,60,0.3) 0%, transparent 40%);
+  animation: hero-fog-breathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hero-fog-breathe {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.03); }
+}
+
+/* Subtle grain texture */
+.hero-grain-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Floating rune particles */
+.hero-runes {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-rune-particle {
+  position: absolute;
+  color: rgba(139,92,246,0.15);
+  animation: rune-float 12s ease-in-out infinite;
+  text-shadow: 0 0 8px rgba(139,92,246,0.3);
+  will-change: transform, opacity;
+}
+
+@keyframes rune-float {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15%  { opacity: 0.25; }
+  50%  { transform: translateY(-30px) rotate(15deg); opacity: 0.15; }
+  85%  { opacity: 0.25; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+}
+
+/* Central title overlay */
+.hero-title-overlay {
   position: relative;
-  z-index: 1;
-  max-width: 640px;
-  min-height: 760px;
+  z-index: 5;
+  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: clamp(2rem, 4vw, 3.5rem);
-  background: linear-gradient(90deg, rgba(8,8,14,0.84), rgba(8,8,14,0.26));
+  align-items: center;
+  padding: 2rem;
+  width: min(920px, calc(100% - 2rem));
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
 }
 
-.hero-copy::before {
-  content: '';
-  position: absolute;
-  left: clamp(2rem, 4vw, 3.5rem);
-  top: clamp(2rem, 4vw, 3.5rem);
-  bottom: clamp(2rem, 4vw, 3.5rem);
-  width: 1px;
-  background: linear-gradient(180deg, rgba(139,92,246,0), rgba(139,92,246,0.4), rgba(139,92,246,0));
+.hero-title-overlay.hero-revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.hero-copy > * {
-  position: relative;
-  z-index: 1;
+.hero-title-crown {
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+  animation: fade-in 2s ease 0.8s both;
 }
 
-.hero-story-title {
-  font-family: 'Cinzel Decorative', 'Cinzel', serif;
-  font-size: clamp(2rem, 3.6vw, 3.6rem);
-  line-height: 1.12;
-  letter-spacing: 0.01em;
-  max-width: 13ch;
-  margin-bottom: 0.95rem;
-  animation: none;
-  text-shadow:
-    0 0 30px rgba(76,29,149,0.22),
-    2px 2px 8px rgba(0,0,0,0.88);
-}
-
-.hero-summary {
-  max-width: 56ch;
+.hero-grand-title {
+  font-family: 'UnifrakturMaguntia', 'Cinzel Decorative', serif;
+  font-size: clamp(5rem, 14vw, 11rem);
+  letter-spacing: 0.08em;
+  line-height: 0.92;
+  color: var(--parchment);
   margin: 0;
-  color: rgba(241, 232, 219, 0.92);
-  font-size: 1rem;
+  text-shadow:
+    0 0 40px rgba(139,92,246,0.7),
+    0 0 80px rgba(109,40,217,0.5),
+    0 0 120px rgba(76,29,149,0.35),
+    0 0 200px rgba(76,29,149,0.15),
+    4px 4px 12px rgba(0,0,0,0.97);
+  animation: gothic-pulse 4s ease-in-out infinite, hero-title-emerge 1.8s ease both;
+}
+
+@keyframes hero-title-emerge {
+  0%   { letter-spacing: 0.25em; opacity: 0; filter: blur(8px); }
+  100% { letter-spacing: 0.08em; opacity: 1; filter: blur(0); }
+}
+
+.hero-grand-subtitle {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--purple-bright);
+  letter-spacing: 0.06em;
+  margin: 0.6rem 0 0;
+  text-shadow: 0 0 20px rgba(139,92,246,0.5);
+  animation: fade-in 2s ease 1s both;
+}
+
+.hero-eyebrow-top {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  color: rgba(167,139,250,0.85);
+  letter-spacing: 0.06em;
+  margin: 0 0 0.4rem;
+  text-shadow: 0 0 18px rgba(139,92,246,0.5);
+  animation: fade-in 1.8s ease 0.6s both;
+}
+
+.hero-divider-line {
+  width: 120px;
+  height: 1px;
+  margin: 1.2rem 0;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.6), transparent);
+  animation: fade-in 2s ease 1.2s both;
+}
+
+.hero-divider-thin {
+  width: 60px;
+  height: 1px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent);
+  animation: fade-in 2s ease 2s both;
+}
+
+.hero-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  color: rgba(220,216,240,0.88);
+  max-width: 38ch;
+  text-align: center;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+  animation: fade-in 2s ease 1.4s both;
+}
+
+.hero-tagline-second {
+  animation: fade-in 2s ease 2.2s both;
+}
+
+.hero-subtext {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  color: rgba(184,181,208,0.7);
+  max-width: 42ch;
+  text-align: center;
   line-height: 1.75;
+  margin: 0.4rem 0 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+  animation: fade-in 2s ease 1.7s both;
 }
 
-.hero-summary + .hero-summary {
-  margin-top: 0.85rem;
+.hero-tagline-second + .hero-subtext {
+  animation: fade-in 2s ease 2.5s both;
 }
 
-.hero-summary strong {
+.hero-overlay-prose {
+  max-width: 60ch;
+  margin-top: 1.25rem;
+  animation: fade-in 2s ease 2.8s both;
+}
+
+.hero-overlay-lead {
+  margin: 0;
+  color: rgba(237, 233, 248, 0.88);
+  font-size: clamp(0.94rem, 1.45vw, 1.08rem);
+  line-height: 1.8;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.88);
+}
+
+.hero-overlay-lead + .hero-overlay-lead {
+  margin-top: 0.65rem;
+}
+
+.hero-overlay-lead strong {
   color: var(--ivory);
 }
 
+.hero-pillars-overlay {
+  width: min(760px, 100%);
+  margin-top: 1.35rem;
+  animation: fade-in 2s ease 3s both;
+}
+
+/* Scroll indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  animation: hero-scroll-bob 2.5s ease-in-out infinite, fade-in 2s ease 2.5s both;
+}
+
+.hero-scroll-text {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(139,92,246,0.5);
+}
+
+@keyframes hero-scroll-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
 .hero-pillars {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.9rem;
@@ -584,6 +779,15 @@ main {
   border: 1px solid rgba(139,92,246,0.18);
   box-shadow:
     0 12px 30px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-pillar:hover {
+  border-color: rgba(139,92,246,0.4);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.22),
+    0 0 20px rgba(139,92,246,0.1),
     0 0 0 1px rgba(255,255,255,0.03) inset;
 }
 
@@ -630,7 +834,7 @@ main {
 
 .hero-eyebrow {
   animation: fade-in 2.5s ease both;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   margin-bottom: 0.8rem;
   color: rgba(215, 194, 255, 0.94);
 }
@@ -791,11 +995,15 @@ h3 {
 }
 
 .hero-actions-left {
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .homepage {
   padding-bottom: 4rem;
+}
+
+.homepage .hero-immersive + .hero-prose-section {
+  border-top: none;
 }
 
 /* ── BUTTONS — Iron gate style ───────────────────────── */
@@ -905,7 +1113,8 @@ h3 {
   transform: translateY(-6px);
   box-shadow:
     0 30px 70px rgba(0,0,0,0.9),
-    0 0 40px rgba(139,92,246,0.15),
+    0 0 50px rgba(139,92,246,0.2),
+    0 0 100px rgba(76,29,149,0.1),
     inset 0 0 50px rgba(0,0,0,0.55);
 }
 
@@ -1051,6 +1260,7 @@ h3 {
   border-left: 2px solid rgba(124,58,237,0.45);
   border-right: 2px solid rgba(124,58,237,0.45);
   text-shadow: 0 0 25px rgba(0,0,0,0.85);
+  transition: border-color 0.5s ease;
 }
 
 .closing-quote::before {
@@ -1062,6 +1272,586 @@ h3 {
   line-height: 0.7;
   margin-bottom: 0.5rem;
   font-style: normal;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   COSMIC BACKGROUND — Planets, Orbits, Nebulae
+   ══════════════════════════════════════════════════════════════ */
+
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Nebula clouds */
+.cosmic-nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: cosmic-drift 40s ease-in-out infinite;
+}
+
+.cosmic-nebula-1 {
+  width: 600px;
+  height: 400px;
+  top: 5%;
+  right: -10%;
+  background: radial-gradient(ellipse, rgba(76,29,149,0.5) 0%, rgba(46,16,101,0.2) 50%, transparent 70%);
+}
+
+.cosmic-nebula-2 {
+  width: 500px;
+  height: 500px;
+  bottom: 10%;
+  left: -8%;
+  background: radial-gradient(ellipse, rgba(88,28,135,0.4) 0%, rgba(30,10,60,0.15) 55%, transparent 70%);
+  animation-delay: -15s;
+  animation-duration: 50s;
+}
+
+.cosmic-nebula-3 {
+  width: 350px;
+  height: 280px;
+  top: 40%;
+  right: 15%;
+  background: radial-gradient(ellipse, rgba(109,40,217,0.3) 0%, transparent 65%);
+  animation-delay: -25s;
+  animation-duration: 35s;
+}
+
+@keyframes cosmic-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(20px, -15px) scale(1.05); }
+  50% { transform: translate(-10px, 10px) scale(0.97); }
+  75% { transform: translate(15px, 20px) scale(1.03); }
+}
+
+/* Orbital rings — elliptical paths */
+.cosmic-orbit {
+  position: absolute;
+  border: 1px solid rgba(139,92,246,0.06);
+  border-radius: 50%;
+  animation: cosmic-orbit-spin linear infinite;
+}
+
+.cosmic-orbit-1 {
+  width: 400px;
+  height: 180px;
+  top: 12%;
+  left: 8%;
+  transform: rotate(-15deg);
+  animation-duration: 90s;
+}
+
+.cosmic-orbit-2 {
+  width: 550px;
+  height: 250px;
+  bottom: 20%;
+  right: 5%;
+  transform: rotate(25deg);
+  animation-duration: 120s;
+  animation-direction: reverse;
+  border-color: rgba(109,40,217,0.05);
+}
+
+.cosmic-orbit-3 {
+  width: 300px;
+  height: 140px;
+  top: 55%;
+  left: 25%;
+  transform: rotate(-8deg);
+  animation-duration: 70s;
+  border-color: rgba(76,29,149,0.07);
+}
+
+@keyframes cosmic-orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Planets */
+.cosmic-planet {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.cosmic-planet-1 {
+  width: 14px;
+  height: 14px;
+  top: -7px;
+  left: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(167,139,250,0.6), rgba(76,29,149,0.8));
+  box-shadow:
+    0 0 12px rgba(139,92,246,0.4),
+    0 0 30px rgba(109,40,217,0.15),
+    inset -2px -2px 4px rgba(0,0,0,0.5);
+}
+
+.cosmic-planet-2 {
+  width: 20px;
+  height: 20px;
+  top: -10px;
+  left: 30%;
+  background: radial-gradient(circle at 30% 30%, rgba(196,181,253,0.5), rgba(88,28,135,0.7), rgba(46,16,101,0.9));
+  box-shadow:
+    0 0 18px rgba(139,92,246,0.35),
+    0 0 40px rgba(76,29,149,0.12),
+    inset -3px -3px 6px rgba(0,0,0,0.6);
+}
+
+.cosmic-planet-3 {
+  width: 10px;
+  height: 10px;
+  top: -5px;
+  left: 70%;
+  background: radial-gradient(circle at 40% 35%, rgba(139,92,246,0.7), rgba(30,10,60,0.9));
+  box-shadow:
+    0 0 8px rgba(139,92,246,0.3),
+    inset -1px -1px 3px rgba(0,0,0,0.5);
+}
+
+/* Moon orbiting planet 3 */
+.cosmic-moon {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  left: 72%;
+  background: rgba(196,181,253,0.6);
+  box-shadow: 0 0 5px rgba(167,139,250,0.4);
+  animation: cosmic-moon-orbit 8s linear infinite;
+}
+
+@keyframes cosmic-moon-orbit {
+  from { transform: rotate(0deg) translateX(12px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(12px) rotate(-360deg); }
+}
+
+/* Distant gas giant */
+.cosmic-giant {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  top: 28%;
+  right: 8%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(167,139,250,0.15) 0%, rgba(76,29,149,0.2) 40%, rgba(30,10,60,0.3) 70%, rgba(3,1,8,0.4) 100%);
+  box-shadow:
+    0 0 40px rgba(76,29,149,0.1),
+    inset -8px -5px 20px rgba(0,0,0,0.5),
+    inset 3px 2px 15px rgba(139,92,246,0.1);
+  opacity: 0.6;
+}
+
+/* Gas giant ring */
+.cosmic-giant-ring {
+  position: absolute;
+  width: 130px;
+  height: 30px;
+  top: calc(28% + 25px);
+  right: calc(8% - 25px);
+  border: 1px solid rgba(139,92,246,0.08);
+  border-radius: 50%;
+  transform: rotateX(70deg) rotateZ(-15deg);
+  opacity: 0.5;
+}
+
+/* Stars */
+.cosmic-star {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(196,181,253,0.6);
+  animation: cosmic-twinkle 4s ease-in-out infinite;
+}
+
+@keyframes cosmic-twinkle {
+  0%, 100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   ENTROPY RITUAL — Second Law of Thermodynamics
+   ══════════════════════════════════════════════════════════════ */
+
+.entropy-ritual {
+  position: relative;
+  z-index: 1;
+  margin: 0 calc(-50vw + 50%);
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(3,1,8,1) 0%, rgba(8,4,18,1) 50%, rgba(3,1,8,1) 100%);
+  padding: 4rem 0 3rem;
+  overflow: hidden;
+}
+
+.entropy-ritual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5) 30%, rgba(167,139,250,0.8) 50%, rgba(139,92,246,0.5) 70%, transparent);
+}
+
+.entropy-ritual::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5) 30%, rgba(167,139,250,0.8) 50%, rgba(139,92,246,0.5) 70%, transparent);
+}
+
+.entropy-ritual-header {
+  text-align: center;
+  padding: 0 1.5rem 2rem;
+}
+
+.entropy-ritual-eyebrow {
+  font-size: 1.2rem;
+  animation: fade-in 2s ease both;
+}
+
+.entropy-ritual-title {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--purple-bright);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 30px rgba(139,92,246,0.6),
+    0 0 60px rgba(109,40,217,0.3);
+  animation: gothic-pulse 4s ease-in-out infinite;
+}
+
+.entropy-ritual-lead {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--bone);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.entropy-ritual-lead em {
+  color: rgba(167,139,250,0.75);
+}
+
+.entropy-ritual-canvas-wrap {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid rgba(139,92,246,0.15);
+  background: rgba(3,1,8,0.95);
+  box-shadow:
+    0 0 60px rgba(76,29,149,0.15),
+    0 0 120px rgba(46,16,101,0.08),
+    inset 0 0 80px rgba(0,0,0,0.5);
+}
+
+.entropy-ritual-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+}
+
+.entropy-ritual-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.entropy-ritual-phase {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(167,139,250,0.7);
+  text-shadow: 0 0 12px rgba(139,92,246,0.5);
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(139,92,246,0.2);
+  background: rgba(3,1,8,0.7);
+}
+
+.entropy-ritual-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.entropy-ritual-value {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgba(196,181,253,0.8);
+  text-shadow: 0 0 10px rgba(139,92,246,0.4);
+}
+
+.entropy-ritual-omega {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(139,92,246,0.5);
+}
+
+.entropy-corner-rune {
+  position: absolute;
+  font-size: 1rem;
+  color: rgba(139,92,246,0.2);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.entropy-corner-tl { top: 0.5rem; left: 0.5rem; }
+.entropy-corner-tr { top: 0.5rem; right: 0.5rem; }
+.entropy-corner-bl { bottom: 0.5rem; left: 0.5rem; }
+.entropy-corner-br { bottom: 0.5rem; right: 0.5rem; }
+
+.entropy-ritual-coda {
+  text-align: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(184,181,208,0.6);
+  max-width: 650px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.entropy-ritual-attr {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(139,92,246,0.4);
+}
+
+@media (max-width: 768px) {
+  .entropy-ritual {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .entropy-ritual-overlay {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .entropy-ritual-stats {
+    align-items: flex-start;
+  }
+
+  .entropy-ritual-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .cosmic-giant,
+  .cosmic-giant-ring {
+    display: none;
+  }
+
+  .cosmic-orbit-2 {
+    display: none;
+  }
+}
+
+/* ── ENTROPY RITUAL ─────────────────────────────────── */
+
+.entropy-ritual {
+  position: relative;
+  z-index: 1;
+  margin: 0 calc(-50vw + 50%);
+  width: 100vw;
+  background: linear-gradient(180deg, rgba(3,1,8,1) 0%, rgba(8,4,18,1) 50%, rgba(3,1,8,1) 100%);
+  padding: 4rem 0 3rem;
+  overflow: hidden;
+}
+
+.entropy-ritual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5) 30%, rgba(167,139,250,0.8) 50%, rgba(139,92,246,0.5) 70%, transparent);
+}
+
+.entropy-ritual::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5) 30%, rgba(167,139,250,0.8) 50%, rgba(139,92,246,0.5) 70%, transparent);
+}
+
+.entropy-ritual-header {
+  text-align: center;
+  padding: 0 1.5rem 2rem;
+}
+
+.entropy-ritual-eyebrow {
+  font-size: 1.2rem;
+  animation: fade-in 2s ease both;
+}
+
+.entropy-ritual-title {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: var(--purple-bright);
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 30px rgba(139,92,246,0.6),
+    0 0 60px rgba(109,40,217,0.3);
+  animation: gothic-pulse 4s ease-in-out infinite;
+}
+
+.entropy-ritual-lead {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--bone);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.entropy-ritual-lead em {
+  color: rgba(167,139,250,0.75);
+}
+
+.entropy-ritual-canvas-wrap {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid rgba(139,92,246,0.15);
+  background: rgba(3,1,8,0.95);
+  box-shadow:
+    0 0 60px rgba(76,29,149,0.15),
+    0 0 120px rgba(46,16,101,0.08),
+    inset 0 0 80px rgba(0,0,0,0.5);
+}
+
+.entropy-ritual-canvas-wrap canvas {
+  display: block;
+  width: 100%;
+}
+
+.entropy-ritual-overlay {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.entropy-ritual-phase {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(167,139,250,0.7);
+  text-shadow: 0 0 12px rgba(139,92,246,0.5);
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(139,92,246,0.2);
+  background: rgba(3,1,8,0.7);
+}
+
+.entropy-ritual-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.entropy-ritual-value {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: rgba(196,181,253,0.8);
+  text-shadow: 0 0 10px rgba(139,92,246,0.4);
+}
+
+.entropy-ritual-omega {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(139,92,246,0.5);
+}
+
+.entropy-corner-rune {
+  position: absolute;
+  font-size: 1rem;
+  color: rgba(139,92,246,0.2);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.entropy-corner-tl { top: 0.5rem; left: 0.5rem; }
+.entropy-corner-tr { top: 0.5rem; right: 0.5rem; }
+.entropy-corner-bl { bottom: 0.5rem; left: 0.5rem; }
+.entropy-corner-br { bottom: 0.5rem; right: 0.5rem; }
+
+.entropy-ritual-coda {
+  text-align: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(184,181,208,0.6);
+  max-width: 650px;
+  margin: 2rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.entropy-ritual-attr {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: rgba(139,92,246,0.4);
+}
+
+@media (max-width: 768px) {
+  .entropy-ritual {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .entropy-ritual-overlay {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .entropy-ritual-stats {
+    align-items: flex-start;
+  }
+
+  .entropy-ritual-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
 }
 
 /* ── COSMOLOGY PAGE ──────────────────────────────────── */
@@ -2453,28 +3243,42 @@ h3 {
     padding: 1.8rem 1.2rem;
   }
 
-  .hero {
-    padding-top: 4rem;
-    padding-bottom: 2.8rem;
+  .hero-immersive {
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
-  .hero-image {
-    min-height: 520px;
+  .hero-title-overlay {
+    width: min(100%, calc(100% - 1.25rem));
+    padding: 1.25rem 0.75rem 2.75rem;
   }
 
-  .hero-copy {
-    min-height: 520px;
-    padding: 1.4rem 1.2rem 1.5rem;
-    justify-content: flex-end;
+  .hero-grand-title {
+    font-size: clamp(3.5rem, 16vw, 6rem);
   }
 
-  .hero-story-title {
-    font-size: clamp(1.65rem, 6.4vw, 2.35rem);
-    max-width: 14ch;
+  .hero-grand-subtitle {
+    font-size: clamp(1rem, 4vw, 1.4rem);
   }
 
-  .hero-copy::before {
-    display: none;
+  .hero-tagline {
+    font-size: 0.85rem;
+    max-width: 30ch;
+  }
+
+  .hero-subtext {
+    font-size: 0.8rem;
+    max-width: 30ch;
+  }
+
+  .hero-overlay-prose {
+    max-width: 34ch;
+    margin-top: 1rem;
+  }
+
+  .hero-overlay-lead {
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 
   .hero-pillars {
