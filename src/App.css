@@ -529,8 +529,8 @@ main {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(ellipse at 50% 50%, transparent 30%, rgba(3,1,8,0.5) 65%, rgba(3,1,8,0.92) 100%),
-    linear-gradient(180deg, rgba(3,1,8,0.6) 0%, transparent 20%, transparent 60%, rgba(3,1,8,0.95) 100%),
+    radial-gradient(ellipse at 50% 50%, rgba(3,1,8,0.1) 0%, rgba(3,1,8,0.45) 50%, rgba(3,1,8,0.9) 100%),
+    linear-gradient(180deg, rgba(3,1,8,0.5) 0%, transparent 20%, transparent 60%, rgba(3,1,8,0.95) 100%),
     linear-gradient(0deg, rgba(3,1,8,1) 0%, transparent 15%);
   pointer-events: none;
 }
@@ -598,11 +598,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 2.5rem 3rem;
   width: min(920px, calc(100% - 2rem));
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+  background: radial-gradient(ellipse at 50% 40%, rgba(3,1,8,0.55) 0%, rgba(3,1,8,0.3) 55%, transparent 85%);
+  border-radius: 12px;
 }
 
 .hero-title-overlay.hero-revealed {
@@ -840,8 +842,8 @@ main {
 }
 
 .eyebrow-blood {
-  color: var(--purple-bright);
-  text-shadow: 0 0 12px rgba(139,92,246,0.4);
+  color: var(--purple-glow);
+  text-shadow: 0 0 12px rgba(196,181,253,0.4);
 }
 
 .eyebrow-gold {
@@ -2192,13 +2194,12 @@ h3 {
 
 .rod-blood {
   background:
-    radial-gradient(circle at 50% 30%, rgba(109,40,217,0.4), transparent 60%),
-    linear-gradient(180deg, #1c1540, #100c28 65%, #08061a);
-  border: 1px solid rgba(124,58,237,0.55);
+    radial-gradient(circle at 50% 30%, rgba(168,120,32,0.3), transparent 60%),
+    linear-gradient(180deg, #2a2010, #1a1408 65%, #0e0c04);
+  border: 1px solid rgba(130,90,20,0.5);
   box-shadow:
-    inset 0 1px 3px rgba(139,92,246,0.15),
-    0 0 12px rgba(109,40,217,0.2),
-    0 6px 18px rgba(0,0,0,0.75);
+    inset 0 1px 3px rgba(200,160,50,0.1),
+    0 6px 16px rgba(0,0,0,0.7);
 }
 
 .rod-gold {
@@ -2219,24 +2220,24 @@ h3 {
   overflow: hidden;
 }
 
-/* Vin tablet — deep purple-black stone */
+/* Vin tablet — matches Ken tablet style */
 .tablet-vin {
-  border: 1px solid rgba(124,58,237,0.5);
+  border: 1px solid rgba(100,70,20,0.5);
   background:
-    radial-gradient(circle at 20% 15%, rgba(46,16,101,0.3), transparent 35%),
-    radial-gradient(circle at 80% 85%, rgba(30,10,60,0.25), transparent 30%),
+    radial-gradient(circle at 20% 15%, rgba(50,35,10,0.22), transparent 35%),
+    radial-gradient(circle at 80% 85%, rgba(30,20,5,0.18), transparent 30%),
     repeating-linear-gradient(
       0deg,
-      rgba(60,30,120,0.04),
-      rgba(60,30,120,0.04) 1px,
+      rgba(80,60,20,0.04),
+      rgba(80,60,20,0.04) 1px,
       transparent 1px,
       transparent 5px
     ),
-    linear-gradient(175deg, #0a0620 0%, #060414 50%, #030108 100%);
+    linear-gradient(175deg, #0e0c04 0%, #080604 50%, #040302 100%);
   box-shadow:
     0 22px 55px rgba(0,0,0,0.85),
     inset 0 0 45px rgba(0,0,0,0.55),
-    0 0 35px rgba(76,29,149,0.1);
+    0 0 35px rgba(50,35,10,0.08);
 }
 
 /* Ken tablet — dark gold-brown parchment */
@@ -2267,10 +2268,10 @@ h3 {
   pointer-events: none;
 }
 
-.tablet-rune-tl { top: 0.6rem;  left: 0.7rem;  color: rgba(139,92,246,0.3); }
-.tablet-rune-tr { top: 0.6rem;  right: 0.7rem; color: rgba(139,92,246,0.3); }
-.tablet-rune-bl { bottom: 0.6rem; left: 0.7rem;  color: rgba(139,92,246,0.15); }
-.tablet-rune-br { bottom: 0.6rem; right: 0.7rem; color: rgba(139,92,246,0.15); }
+.tablet-rune-tl { top: 0.6rem;  left: 0.7rem;  color: rgba(168,120,32,0.25); }
+.tablet-rune-tr { top: 0.6rem;  right: 0.7rem; color: rgba(168,120,32,0.25); }
+.tablet-rune-bl { bottom: 0.6rem; left: 0.7rem;  color: rgba(168,120,32,0.15); }
+.tablet-rune-br { bottom: 0.6rem; right: 0.7rem; color: rgba(168,120,32,0.15); }
 
 .tablet-ken .tablet-rune-tl,
 .tablet-ken .tablet-rune-tr { color: rgba(168,120,32,0.25); }
@@ -2285,7 +2286,7 @@ h3 {
 
 .hymn-deity-glyph {
   font-size: 1.1rem;
-  color: rgba(139,92,246,0.45);
+  color: rgba(168,120,32,0.55);
   line-height: 1;
 }
 
@@ -2310,9 +2311,9 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(124,58,237,0.4) 25%,
-    rgba(167,139,250,0.65) 50%,
-    rgba(124,58,237,0.4) 75%,
+    rgba(100,70,15,0.4) 30%,
+    rgba(140,100,20,0.6) 50%,
+    rgba(100,70,15,0.4) 70%,
     transparent 100%
   );
 }
@@ -2343,8 +2344,8 @@ h3 {
 }
 
 .tablet-vin h3 {
-  color: var(--parchment);
-  text-shadow: 0 0 22px rgba(139,92,246,0.25);
+  color: #e8dcc0;
+  text-shadow: 0 0 22px rgba(168,120,32,0.18);
 }
 
 .tablet-ken h3 {
@@ -2362,7 +2363,7 @@ h3 {
   text-wrap: pretty;
 }
 
-.tablet-vin .hymn-body  { color: var(--bone); }
+.tablet-vin .hymn-body  { color: #c8b888; }
 .tablet-ken .hymn-body  { color: #c8b888; }
 
 .hymn-body::first-letter {
@@ -2374,8 +2375,8 @@ h3 {
 }
 
 .tablet-vin .hymn-body::first-letter {
-  color: var(--purple-bright);
-  text-shadow: 0 0 12px rgba(139,92,246,0.4);
+  color: rgba(200,150,40,0.9);
+  text-shadow: 0 0 12px rgba(168,120,32,0.3);
 }
 .tablet-ken .hymn-body::first-letter {
   color: rgba(200,150,40,0.9);
@@ -2418,18 +2419,18 @@ h3 {
 }
 
 .hymn-btn-vin {
-  background: linear-gradient(180deg, rgba(46,16,101,0.95), rgba(20,12,50,0.97));
-  border: 1px solid rgba(124,58,237,0.55);
-  color: var(--bone);
+  background: linear-gradient(180deg, rgba(30,22,8,0.95), rgba(15,11,4,0.97));
+  border: 1px solid rgba(100,70,15,0.5);
+  color: #c8b888;
 }
 
 .hymn-btn-vin:hover {
-  background: linear-gradient(180deg, rgba(76,29,149,0.95), rgba(46,16,101,0.97));
-  border-color: rgba(167,139,250,0.75);
-  color: var(--parchment);
+  background: linear-gradient(180deg, rgba(60,44,14,0.95), rgba(30,22,8,0.97));
+  border-color: rgba(168,120,32,0.7);
+  color: #e8dcc0;
   box-shadow:
     0 4px 16px rgba(0,0,0,0.55),
-    0 0 14px rgba(139,92,246,0.2);
+    0 0 14px rgba(100,70,15,0.15);
 }
 
 .hymn-btn-ken {
@@ -2469,14 +2470,14 @@ h3 {
 }
 
 .dot-vin {
-  border-color: rgba(124,58,237,0.4);
-  background: rgba(46,16,101,0.3);
+  border-color: rgba(100,70,15,0.4);
+  background: rgba(50,35,8,0.3);
 }
 
 .dot-vin.active {
-  background: rgba(139,92,246,0.85);
-  border-color: rgba(167,139,250,0.9);
-  box-shadow: 0 0 8px rgba(139,92,246,0.5);
+  background: rgba(168,120,32,0.85);
+  border-color: rgba(200,150,40,0.9);
+  box-shadow: 0 0 8px rgba(168,120,32,0.45);
 }
 
 .dot-ken {
@@ -2941,9 +2942,9 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(124,58,237,0.6) 25%,
-    rgba(167,139,250,0.9) 50%,
-    rgba(124,58,237,0.6) 75%,
+    rgba(139,92,246,0.5) 25%,
+    rgba(196,181,253,0.8) 50%,
+    rgba(139,92,246,0.5) 75%,
     transparent 100%
   );
 }

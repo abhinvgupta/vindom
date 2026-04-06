@@ -70,7 +70,7 @@ function RainLayer() {
   return (
     <div className="rain-layer" aria-hidden="true">
       {Array.from({ length: 80 }, (_, i) => {
-        const left = (i * 0.93) % 100
+        const left = (i * 1.27) % 100
         const delay = ((i * 0.17) % 3.6).toFixed(2)
         const duration = (0.95 + (i % 5) * 0.18).toFixed(2)
         const opacity = 0.08 + (i % 4) * 0.03
